@@ -97,7 +97,12 @@ while True:
         ball.dy *= -1
         
     # Left and Right
-    if ball.xcor()
+    if ball.xcor() >350:
+        scoreA += 1
+        pen.clear()
+        pen.write("Player A: {} Player B: {}".format(scoreA, scoreB), align="center", font = ("Courier", 24, "normal"))
+        ball.goto(0,0)
+        ball.dx *= -1
 
 
     
