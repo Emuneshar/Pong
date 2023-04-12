@@ -86,4 +86,18 @@ while True:
 
     #Border Checking
 
+    # Top and Bottom
+    if ball.ycor() > 290:
+        ball.sety(299)
+        ball.dy *= -1
+        
+
+    elif ball.ycor() < -290:
+        ball.sety(-290)
+        ball.dy *= -1
+        
+    # Left and Right
+    if ball.xcor()
+
+
     
