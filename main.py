@@ -70,5 +70,20 @@ def paddle_b_down():
     y-= 20
     paddle_b.sety(y)
 
-        
- 
+# Keyboard Bindings
+wn.listen()
+wn.onkeypress(paddle_a_up, "w")
+wn.onkeypress(paddle_a_down, "s")
+wn.onkeypress(paddle_b_up, "Up")
+wn.onkeypress(paddle_b_down, "Down")
+
+# Main game loop
+while True:
+    wn.update()
+
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
+    #Border Checking
+
+    
