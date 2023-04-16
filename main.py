@@ -36,8 +36,10 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0,0)
-ball.dx = 2
-ball.dy = 2
+
+# Might have to mess with these numbers a bit, the lower the number the slower the ball
+ball.dx = 0.05   
+ball.dy = -0.05
 
 # Pen
 pen = turtle.Turtle()
@@ -82,6 +84,7 @@ wn.onkeypress(paddle_b_down, "Down")
 while True:
     wn.update()
 
+    # Code to move the ball
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
 
@@ -89,7 +92,7 @@ while True:
 
     # Top and Bottom
     if ball.ycor() > 290:
-        ball.sety(299)
+        ball.sety(290)
         ball.dy *= -1
         
 
@@ -98,14 +101,14 @@ while True:
         ball.dy *= -1
         
     # Left and Right
-    if ball.xcor() >350:
+    if ball.xcor() > 390:
         scoreA += 1
         pen.clear()
         pen.write("Player A: {} Player B: {}".format(scoreA, scoreB), align="center", font = ("Courier", 24, "normal"))
         ball.goto(0,0)
         ball.dx *= -1
 
-    elif ball.xcor() < -350:
+    elif ball.xcor() < -390:
         scoreB += 1
         pen.clear()
         pen.write("Player A: {} Player B: {}".format(scoreA, scoreB), align="center", font=("Courier", 24, "normal"))
@@ -113,10 +116,12 @@ while True:
         ball.dx *= -1
 
     # Paddle and ball collisions 
-    if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50:
-        ball.dx *= 1     
+    if (ball.xcor() > 340 and ball.xcor() < 350) and ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 50:
+        ball.setx(340)
+        ball.dx *= -1  
 
-    elif ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() - 50:
+    elif (ball.xcor() < -340 and ball.xcor() > -350) and ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 50:
+        ball.setx(-340)
         ball.dx *= -1
     
     
