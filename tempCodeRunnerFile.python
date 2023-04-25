@@ -1,0 +1,16 @@
+list = [9,-3,5,2,6,8,-6,1,3]
+
+def partition(list, start, end):
+    pivot = end
+    listOne = []
+    listTwo = []
+    for x in list:
+        if list[x] > pivot:
+            listTwo.append(list[x])
+        else:
+            listOne.append(list[x])
+    print(listOne)
+    print(listTwo)
+
+
+partition(list, list[0], list[len(list)-1])

@@ -38,8 +38,8 @@ ball.penup()
 ball.goto(0,0)
 
 # Might have to mess with these numbers a bit, the lower the number the slower the ball
-ball.dx = 0.05   
-ball.dy = -0.05
+ball.dx = 1   
+ball.dy = -1
 
 # Pen
 pen = turtle.Turtle()
